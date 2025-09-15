@@ -3,7 +3,7 @@ This **EmbDA** repository contains all the document alignment methods we used in
 - **Mean-Pool**
 - **TK-PERT**
 - **OT (Optimal Transport)**: Part of the code refers to [OTAlign](https://aclanthology.org/2023.acl-long.219/).
-- **GMD (Greedy Movers' Distance)**: The entire code refers to [Fernando et al.](https://github.com/nlpcuom/parallel_corpus_mining/blob/master/document_alignment/GreedyMoversDistance.py).
+- **GMD (Greedy Movers' Distance)**: Part of the code refers to [Fernando et al.](https://github.com/nlpcuom/parallel_corpus_mining/blob/master/document_alignment/GreedyMoversDistance.py).
 - **BiMax**
 
 # Prerequisite
