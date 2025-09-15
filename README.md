@@ -19,7 +19,8 @@ cd ./main
 sh 00.generate_embs.sh
 ``` 
 Modify the parameters `LANG`, `DATA_DOMAIN`, and `SPLIT_METHOD` in the shell file to generate embeddings using the **OFLS** or **SBS** for different languages across the various domains.
-- Note: When setting `DATA_DOMAIN`, please pay attention to case sensitivity.
+
+**Note**: When setting `DATA_DOMAIN`, please pay attention to case sensitivity.
 ``` shell
 #!/bin/bash
 
@@ -73,7 +74,9 @@ To use this pipeline, please configure the following:
   - Please choose from "cos" and "margin"
 - Search Strategy using FAISS `SEARCH_TYPE`
 - Number of candidates for FAISS search `CAND_NUM`
+
 **Note**: Ensure that the necessary embeddings are ready before running the pipeline.
+
 The default settings correspond to the parameters used in the paper.
 ``` shell
 #!/bin/bash
