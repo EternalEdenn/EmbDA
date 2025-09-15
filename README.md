@@ -64,12 +64,17 @@ To use this pipeline, please configure the following:
 - Target language `TGT_LANG`
 - Data domain `DATA_DOMAIN`
 - Segmentation strategy `SPLIT_METHOD`
-- Document alignment method `DA_METHOD`
+- **Document alignment method** `DA_METHOD`
   - Choose `[mean, tkpert]` to only use Mean-Pool or TK-PERT
   - Choose `mean-[sf, sl]-[ot, gmd]` to use Mean-Pool vectors as retrieval embeddings, with:
     - "sf" or "sl" as weighting scheme
     - OT or GMD for alignment
   - Choose `mean-bimax` to use BiMax
+    - If BiMax is chosen, please set `BIMAX_TYPE`
+    - **Note**: **Loop** vs. **Batch** Mode
+	  - The difference between Loop and Batch lies only in speed (not accuracy).
+	  - **Loop mode** (the method used in the paper) performs similarity computation on each document pair sequentially using a for loop.
+	  - **Batch mode** computes multiple document pairs simultaneously, which requires more memory but is faster.
 - Similarity computation method when using Mean-Pool or TK-PERT `SIM_METHOD`
   - Please choose from "cos" and "margin"
 - Search Strategy using FAISS `SEARCH_TYPE`
@@ -87,15 +92,18 @@ DATA_PATH=../fernando_data
 
 mkdir -p $OUT_PATH
 
-SRC_LANG=en               # Source Language
-TGT_LANG=si               # Target Language
+SRC_LANG=si               # Source Language
+TGT_LANG=ta               # Target Language
 
-DA_METHOD=mean-bimax    
+DA_METHOD=mean-sf-ot    
 # Document alignment method, choose from [mean, tkpert, mean-[sl, sf]-[ot, gmd] (e.g., mean-sf-ot), mean-bimax]
+
+# If "bimax" is choosed
+BIMAX_TYPE=loop            # Calculation type of BiMax, choose from [loop, batch] 
 
 SIM_METHOD=cos             # Retrieval strategy for "mean" or "tkpert", choose from [cos, margin]
 SPLIT_METHOD=ofls          # Segmentation method, choose from [ofls, sbs]
-DATA_DOMAIN=Army            # Data domain, choose from [Newsfirst, ITN, Army, Hiru]
+DATA_DOMAIN=ITN            # Data domain, choose from [Newsfirst, ITN, Army, Hiru]
 # If "ofls" is choosed
 FL=30                      # Fixed-Length for OFLS
 OR=0.5                     # Overlapping Rate for OFLS
