@@ -64,13 +64,13 @@ To use this pipeline, please configure the following:
 - Data domain `DATA_DOMAIN`
 - Segmentation strategy `SPLIT_METHOD`
 - Document alignment method `DA_METHOD`
--- Choose `[mean, tkpert]` to only use Mean-Pool or TK-PERT
--- Choose `mean-[sf, sl]-[ot, gmd]` to use Mean-Pool vectors as retrieval embeddings, with:
---- "sf" or "sl" as weighting scheme
---- OT or GMD for alignment
--- Choose `mean-bimax` to use BiMax
+  - Choose `[mean, tkpert]` to only use Mean-Pool or TK-PERT
+  - Choose `mean-[sf, sl]-[ot, gmd]` to use Mean-Pool vectors as retrieval embeddings, with:
+    - "sf" or "sl" as weighting scheme
+    - OT or GMD for alignment
+  - Choose `mean-bimax` to use BiMax
 - Similarity computation method when using Mean-Pool or TK-PERT `SIM_METHOD`
--- Please choose from "cos" and "margin"
+  - Please choose from "cos" and "margin"
 - Search Strategy using FAISS `SEARCH_TYPE`
 - Number of candidates for FAISS search `CAND_NUM`
 
