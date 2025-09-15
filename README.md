@@ -13,17 +13,18 @@ This **EmbDA** repository contains all the document alignment methods we used in
   - If you'd like to use this dataset in your research, please cite their [paper](https://link.springer.com/article/10.1007/s10115-022-01761-x).
 
 # Generate Embeddings
-**Quick Start**: Run `main/00.generate_embs.sh` to generate embeddings
+**Quick Start**: Run `main/00.generate_embs.sh` to generate embeddings.
 ``` shell
 cd ./main
-sh 00.generate.sh
+sh 00.generate_embs.sh
 ``` 
-Modify the parameters `LANG`, `DATA_DOMAIN`, and `SPLIT_METHOD` in the shell file to generate embeddings using the `OFLS` or `SBS` for different languages across the various domains.
+Modify the parameters `LANG`, `DATA_DOMAIN`, and `SPLIT_METHOD` in the shell file to generate embeddings using the **OFLS** or **SBS** for different languages across the various domains.
+- Note: When setting `DATA_DOMAIN`, please pay attention to case sensitivity.
 ``` shell
 #!/bin/bash
 
-LANG=ta                    # Lang, choose from [en, si, ta]
-DATA_DOMAIN=ITN      # Data domain, choose from [Newsfirst, ITN, Army, Hiru]
+LANG=en                    # Lang, choose from [en, si, ta]
+DATA_DOMAIN=Army      # Data domain, choose from [Newsfirst, ITN, Army, Hiru]
 
 TKPERT_J=16                # J for TK-PERT
 TKPER_SHAPE=20             # Shape for TK-PERT
@@ -35,6 +36,8 @@ OVERLAP=0.5                # Overlapping Rate for ofls
 
 DATA_PATH=../fernando_data
 OUT_PATH=../embs             # Path to save the embeddings
+mkdir -p $OUT_PATH
+
 CHUNK_SIZE=2048              # Chunk size used to split document segments into batches for embedding
 SAVE_NUM=4096                # Document Num. for saving in one embedding file
 
@@ -51,7 +54,56 @@ python ../utils/generate_embs.py    --seg_len $FL --overlap $OVERLAP --split_met
 ``` 
 
 # Pipeline: Retrieval, Formatting, and Evaluation
+`main/01.pipeline.sh` is a pipeline that integrates retrieval, result formatting, and evaluation. Individual components can be used separately if needed.
+``` shell
+sh 01.pipeline.sh
+``` 
+To use this pipeline, please configure the following:
+- Source language `SRC_LANG`
+- Target language `TGT_LANG`
+- Data domain `DATA_DOMAIN`
+- Segmentation strategy `SPLIT_METHOD`
+- Document alignment method `DA_METHOD`
+-- Choose `[mean, tkpert]` to only use Mean-Pool or TK-PERT
+-- Choose `mean-[sf, sl]-[ot, gmd]` to use Mean-Pool vectors as retrieval embeddings, with:
+--- "sf" or "sl" as weighting scheme
+--- OT or GMD for alignment
+-- Choose `mean-bimax` to use BiMax
+- Similarity computation method when using Mean-Pool or TK-PERT `SIM_METHOD`
+-- Please choose from "cos" and "margin"
+- Search Strategy using FAISS `SEARCH_TYPE`
+- Number of candidates for FAISS search `CAND_NUM`
 
+The default settings correspond to the parameters used in the paper.
+``` shell
+#!/bin/bash
+
+EMBS_PATH=../embs
+OUT_PATH=../da_results
+DATA_PATH=../fernando_data
+
+mkdir -p $OUT_PATH
+
+SRC_LANG=si               # Source Language
+TGT_LANG=ta               # Target Language
+
+DA_METHOD=mean-sf-ot    
+# Document alignment method, choose from [mean, tkpert, mean-[sl, sf]-[ot, gmd] (e.g., mean-sf-ot), mean-bimax]
+
+SIM_METHOD=cos             # Retrieval strategy for "mean" or "tkpert", choose from [cos, margin]
+SPLIT_METHOD=ofls          # Segmentation method, choose from [ofls, sbs]
+DATA_DOMAIN=ITN            # Data domain, choose from [Newsfirst, ITN, Army, Hiru]
+# If "ofls" is choosed
+FL=30                      # Fixed-Length for OFLS
+OR=0.5                     # Overlapping Rate for OFLS
+
+CAND_NUM=32                # Maximum candidate number for each source doucment using faiss search
+SEARCH_TYPE=cos            # Search type using faiss, choose from [cos, L2]
+
+LANG_PAIR=${SRC_LANG}-${TGT_LANG}
+
+...
+``` 
 # Citation
 If you find our paper and code helpful in your research, please cite our paper:
 
