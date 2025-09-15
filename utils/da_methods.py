@@ -54,7 +54,7 @@ def cal_ot(d1_embs: torch.Tensor, d2_embs: torch.Tensor,
 
 
 'Part for BiMax'
-def bimax_pool(seg_embs_1: torch.Tensor, 
+def bimax_loop(seg_embs_1: torch.Tensor, 
                seg_embs_2: torch.Tensor
 )-> torch.Tensor:
     """

@@ -18,6 +18,7 @@ def main():
     parser.add_argument('--out_path', type=str, default='/work/UTSUROLB/utlb_azam/xwang/20250827_DA/da_results', help='path to output')
     parser.add_argument('--data_domain', type=str, default='Army', help='choose from Army, Hiru, ITN, Newsfirst')
     parser.add_argument('--da_method', type=str, default='mean', help='document alignment method, choose from [mean, tkpert, mean-ot, mean-tkpert, mean-maxsim, tkpert-maxsim, mean-bimax, tkpert-bimax]')
+    parser.add_argument('--bimax_type', type=str, default='batch', help='calculation type of bimax, choose from [loop, batch]')
     parser.add_argument('--sim_method', type=str, default='cos', help='choose from [cos, margin_score]')
     parser.add_argument('--src_lang', type=str, default='en')
     parser.add_argument('--tgt_lang', type=str, default='si')
@@ -167,14 +168,15 @@ def main():
                                                                              )       
                 
     elif da_method.endswith("bimax"):
-        for i in range(len(src_IDs)):
-            for j in range(faiss_k):
-                result_dict["{}\t{}".format(src_IDs[i], tgt_IDs[I[i][j]])] = bimax_pool(src_seg_embs[i], tgt_seg_embs[I[i][j]])
-    # elif da_method.endswith("bimax"):
-    #     scores = bimax_batch(src_seg_embs, tgt_seg_embs, I, device=device)
-    #     for i in range(len(src_IDs)):
-    #         for j in range(faiss_k):
-    #             result_dict["{}\t{}".format(src_IDs[i], tgt_IDs[I[i][j]])] = scores[i, j]
+        if args.bimax_type == "loop":
+            for i in range(len(src_IDs)):
+                for j in range(faiss_k):
+                    result_dict["{}\t{}".format(src_IDs[i], tgt_IDs[I[i][j]])] = bimax_loop(src_seg_embs[i], tgt_seg_embs[I[i][j]])
+        elif args.bimax_type == "batch":
+            scores = bimax_batch(src_seg_embs, tgt_seg_embs, I, device=device)
+            for i in range(len(src_IDs)):
+                for j in range(faiss_k):
+                    result_dict["{}\t{}".format(src_IDs[i], tgt_IDs[I[i][j]])] = scores[i, j]
     
     sim_end_time = time.time()
     sim_time = sim_end_time - sim_start_time
