@@ -139,6 +139,11 @@ Recall: 99.30%
 Precision: 91.12%
 F1: 95.03%
 ``` 
+# Document Alignment methods
+If you only want to use the different document alignment methods:
+- For the construction of vectors with **Mean-Pool** and **TK-PERT**, please refer to `utils/generate_embs.py`.
+- For **OT**, **GMD**, and **BiMax**, please refer to the documentation of the function parameters and return values in `utils/da_methods.py`.
+
 # Citation
 If you find our paper and code helpful in your research, please cite our paper:
 
