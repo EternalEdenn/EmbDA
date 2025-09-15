@@ -73,7 +73,7 @@ To use this pipeline, please configure the following:
   - Please choose from "cos" and "margin"
 - Search Strategy using FAISS `SEARCH_TYPE`
 - Number of candidates for FAISS search `CAND_NUM`
-
+**Note**: Ensure that the necessary embeddings are ready before running the pipeline.
 The default settings correspond to the parameters used in the paper.
 ``` shell
 #!/bin/bash
@@ -84,15 +84,15 @@ DATA_PATH=../fernando_data
 
 mkdir -p $OUT_PATH
 
-SRC_LANG=si               # Source Language
-TGT_LANG=ta               # Target Language
+SRC_LANG=en               # Source Language
+TGT_LANG=si               # Target Language
 
-DA_METHOD=mean-sf-ot    
+DA_METHOD=mean-bimax    
 # Document alignment method, choose from [mean, tkpert, mean-[sl, sf]-[ot, gmd] (e.g., mean-sf-ot), mean-bimax]
 
 SIM_METHOD=cos             # Retrieval strategy for "mean" or "tkpert", choose from [cos, margin]
 SPLIT_METHOD=ofls          # Segmentation method, choose from [ofls, sbs]
-DATA_DOMAIN=ITN            # Data domain, choose from [Newsfirst, ITN, Army, Hiru]
+DATA_DOMAIN=Army            # Data domain, choose from [Newsfirst, ITN, Army, Hiru]
 # If "ofls" is choosed
 FL=30                      # Fixed-Length for OFLS
 OR=0.5                     # Overlapping Rate for OFLS
