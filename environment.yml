@@ -1,4 +1,4 @@
-name: bimax
+name: embda
 channels:
   - pytorch
   - nvidia
@@ -243,4 +243,4 @@ dependencies:
     - yarl==1.18.3
     - zipp==3.21.0
     - zlib-state==0.1.9
-prefix: /anaconda/envs/bimax
+prefix: /anaconda/envs/embda
