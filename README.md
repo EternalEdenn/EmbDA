@@ -115,6 +115,30 @@ LANG_PAIR=${SRC_LANG}-${TGT_LANG}
 
 ...
 ``` 
+The execution results are as follows.
+``` 
+There are 1 GPU(s) available.
+We will use the GPU: NVIDIA H100 PCIe
+1 [en] embedding files have been found!
+1 [si] embedding files have been found!
+Begin loading [en] data file [0]...
+Begin loading [si] data file [0]...
+Begin calculating similarity scores...
+Finish calculating similarities in 3.5583994388580322 seconds!
+
+Run all the program in 53.62904167175293 sec...
+
+All the work has been done!
+
+Begining turning output file to result file...
+Have turned output file to result file!
+TP: 1836
+FP: 179
+FN: 12
+Recall: 99.30%
+Precision: 91.12%
+F1: 95.03%
+``` 
 # Citation
 If you find our paper and code helpful in your research, please cite our paper:
 

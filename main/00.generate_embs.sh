@@ -1,7 +1,7 @@
 #!/bin/bash
 
-LANG=ta                    # Lang, choose from [en, si, ta]
-DATA_DOMAIN=ITN      # Data domain, choose from [Newsfirst, ITN, Army, Hiru]
+LANG=en                    # Lang, choose from [en, si, ta]
+DATA_DOMAIN=Army      # Data domain, choose from [Newsfirst, ITN, Army, Hiru]
 
 TKPERT_J=16                # J for TK-PERT
 TKPER_SHAPE=20             # Shape for TK-PERT
@@ -13,6 +13,8 @@ OVERLAP=0.5                # Overlapping Rate for ofls
 
 DATA_PATH=../fernando_data
 OUT_PATH=../embs             # Path to save the embeddings
+mkdir -p $OUT_PATH
+
 CHUNK_SIZE=2048              # Chunk size used to split document segments into batches for embedding
 SAVE_NUM=4096                # Document Num. for saving in one embedding file
 
