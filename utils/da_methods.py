@@ -208,7 +208,7 @@ def GMD(docVecA: torch.Tensor, docVecB: torch.Tensor,
     Return
         torch.tensor: GMD Distance
     Resource:
-        This code fully refers to the GitHub 
+        This code partly refers to the GitHub 
         https://github.com/nlpcuom/parallel_corpus_mining/blob/master/document_alignment/GreedyMoversDistance.py,
         but it was adapted to run on a Torch-based implementation,
         and the algorithm was optimized.
