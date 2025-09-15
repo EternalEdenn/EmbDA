@@ -1,5 +1,10 @@
 # BiMax: Bidirectional MaxSim Score for Document-Level Alignment
 This **EmbDA** repository contains all the document alignment methods we used in the paper.
+- **Mean-Pool**
+- **TK-PERT**
+- **OT (Optimal Transport)**: Part of the code refers to [OTAlign](https://aclanthology.org/2023.acl-long.219/).
+- **GMD (Greedy Movers' Distance)**: The entire code refers to [Fernando et al.](https://github.com/nlpcuom/parallel_corpus_mining/blob/master/document_alignment/GreedyMoversDistance.py).
+- **BiMax**
 
 # Prerequisite
 - Environment: See `environment.yml`.
