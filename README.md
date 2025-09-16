@@ -140,7 +140,7 @@ Precision: 91.12%
 F1: 95.03%
 ``` 
 <p align="center">
-<img src="./figs/fernando_results.png" width="600">
+<img src="./figs/fernando_results.png" width="650">
 <p>
 
 # Document Alignment methods
