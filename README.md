@@ -139,6 +139,10 @@ Recall: 99.30%
 Precision: 91.12%
 F1: 95.03%
 ``` 
+<p align="center">
+<img src="./figs/fernando_result.png" width="50%">
+<p>
+
 # Document Alignment methods
 If you only want to use the different document alignment methods:
 - For the construction of vectors with **Mean-Pool** and **TK-PERT**, please refer to `utils/generate_embs.py`.
