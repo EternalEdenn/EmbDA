@@ -12,13 +12,13 @@ TGT_LANG=si               # Target Language
 DA_METHOD=mean-bimax    
 # Document alignment method, choose from [mean, tkpert, mean-[sl, sf]-[ot, gmd] (e.g., mean-sf-ot), mean-bimax]
 
-# If "bimax" is choosed
+# If "bimax" has been chosen
 BIMAX_TYPE=loop            # Calculation type of BiMax, choose from [loop, batch] 
 
 SIM_METHOD=cos             # Retrieval strategy for "mean" or "tkpert", choose from [cos, margin]
 SPLIT_METHOD=ofls          # Segmentation method, choose from [ofls, sbs]
 DATA_DOMAIN=Army            # Data domain, choose from [Newsfirst, ITN, Army, Hiru]
-# If "ofls" is choosed
+# If "ofls" has been chosen
 FL=30                      # Fixed-Length for OFLS
 OR=0.5                     # Overlapping Rate for OFLS
 
