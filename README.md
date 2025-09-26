@@ -178,5 +178,5 @@ If you find our paper and code helpful in your research, please cite our paper:
 }
 ``` 
 
-## Contact
+## Contact Us
 If you have any questions about the our paper or codes, please contact us via email or simply post an issue.
