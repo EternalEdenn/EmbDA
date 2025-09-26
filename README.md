@@ -11,13 +11,13 @@ This repository includes the source codes of paper [Document Alignment based on 
 Part of the implementation of **GMD** is from [Fernando et al.](https://github.com/nlpcuom/parallel_corpus_mining/blob/master/document_alignment/GreedyMoversDistance.py).
 
 
-# Prerequisite
+## Prerequisite
 - Environment: See `environment.yml`.
 - Dataset: We list the [Fernando Dataset](https://github.com/kdissa/comparable-corpus) used in the paper in our github repository.
   - The dataset is placed in `fernando_data/` directory.
   - If you'd like to use this dataset in your research, please cite their [paper](https://link.springer.com/article/10.1007/s10115-022-01761-x).
 
-# Generate Embeddings
+## Generate Embeddings
 **Quick Start**: Run `main/00.generate_embs.sh` to generate embeddings.
 ``` shell
 cd ./main
@@ -59,7 +59,7 @@ python ../utils/generate_embs.py    --seg_len $FL --overlap $OVERLAP --split_met
                                     --save_num $SAVE_NUM
 ``` 
 
-# Pipeline: Retrieval, Formatting, and Evaluation
+## Pipeline: Retrieval, Formatting, and Evaluation
 `main/01.pipeline.sh` is a pipeline that integrates retrieval, result formatting, and evaluation. Individual components can be used separately if needed.
 ``` shell
 sh 01.pipeline.sh
@@ -149,12 +149,12 @@ Please check and compare with the results in our paper.
 <img src="./figs/fernando_results.png" width="650">
 <p>
 
-# Document Alignment methods
+## Document Alignment methods
 If you only want to use the different document alignment methods:
 - For the construction of vectors with **Mean-Pool** and **TK-PERT**, please refer to `utils/generate_embs.py`.
 - For **OT**, **GMD**, and **BiMax**, please refer to the documentation of the function parameters and return values in `utils/da_methods.py`.
 
-# Citation
+## Citation
 If you find our paper and code helpful in your research, please cite our paper:
 
 ``` shell
@@ -177,3 +177,6 @@ If you find our paper and code helpful in your research, please cite our paper:
     abstract = "Acquiring large-scale parallel corpora is crucial for NLP tasks such as Neural Machine Translation, and web crawling has become a popular methodology for this purpose. Previous studies have been conducted based on sentence-based segmentation (SBS) when aligning documents in various languages which are obtained through web crawling. Among them, the TK-PERT method (Thompson and Koehn, 2020) achieved state-of-the-art results and addressed the boilerplate text in web crawling data well through a down-weighting approach. However, there remains a problem with how to handle long-text encoding better. Thus, we introduce the strategy of Overlapping Fixed-Length Segmentation (OFLS) in place of SBS, and observe a pronounced enhancement when performing the same approach for document alignment. In this paper, we compare the SBS and OFLS using three previous methods, Mean-Pool, TK-PERT (Thompson and Koehn, 2020), and Optimal Transport (Clark et al., 2019; El-Kishky and Guzman, 2020), on the WMT16 document alignment shared task for French-English, as well as on our self-established Japanese-English dataset MnRN. As a result, for the WMT16 task, various SBS based methods showed an increase in recall by 1{\%} to 10{\%} after reproduction with OFLS. For MnRN data, OFLS demonstrated notable accuracy improvements and exhibited faster document embedding speed."
 }
 ``` 
+
+## Contact
+If you have any questions about the our paper or codes, please contact us via email or simply post an issue.
