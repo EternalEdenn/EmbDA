@@ -2,11 +2,11 @@
 This **EmbDA** repository contains all the document alignment methods we used in the paper.
 - **Mean-Pool**
 - **TK-PERT**
-- **OT (Optimal Transport)**: Implement using the Python library [POT][https://pythonot.github.io].
+- **OT (Optimal Transport)**: Implement using the Python library [POT](https://pythonot.github.io).
 - **GMD (Greedy Movers' Distance)**: Part of the code refers to [Fernando et al.](https://github.com/nlpcuom/parallel_corpus_mining/blob/master/document_alignment/GreedyMoversDistance.py).
 - **BiMax**: Loop or Batch
 
-This repository includes the source codes of paper [Document Alignment based on Overlapping Fixed-Length Segments][https://aclanthology.org/2024.acl-srw.10/] for the implementation of **OFLS**.
+This repository includes the source codes of paper [Document Alignment based on Overlapping Fixed-Length Segments](https://aclanthology.org/2024.acl-srw.10/) for the implementation of **OFLS**.
 Part of the implementation of GMD is from [Fernando et al.](https://github.com/nlpcuom/parallel_corpus_mining/blob/master/document_alignment/GreedyMoversDistance.py).
 
 
