@@ -8,7 +8,7 @@ This **EmbDA** repository contains all the document alignment methods we used in
 
 This repository includes the source codes of paper [Document Alignment based on Overlapping Fixed-Length Segments](https://aclanthology.org/2024.acl-srw.10/) for the implementation of **OFLS**.
 
-Part of the implementation of GMD is from [Fernando et al.](https://github.com/nlpcuom/parallel_corpus_mining/blob/master/document_alignment/GreedyMoversDistance.py).
+Part of the implementation of **GMD** is from [Fernando et al.](https://github.com/nlpcuom/parallel_corpus_mining/blob/master/document_alignment/GreedyMoversDistance.py).
 
 
 # Prerequisite
