@@ -157,7 +157,7 @@ If you only want to use the different document alignment methods:
 ## Citation
 If you find our paper and code helpful in your research, please cite our paper:
 
-``` shell
+``` bibtex
 @misc{wang2025bimaxbidirectionalmaxsimscore,
       title={BiMax: Bidirectional MaxSim Score for Document-Level Alignment}, 
       author={Xiaotian Wang and Takehito Utsuro and Masaaki Nagata},
