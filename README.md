@@ -167,6 +167,26 @@ If you find our paper and code helpful in your research, please cite our paper:
       primaryClass={cs.CL},
       url={https://arxiv.org/abs/2510.15577}, 
 }
+@inproceedings{wang-etal-2025-bimax,
+    title = "{B}i{M}ax: Bidirectional {M}ax{S}im Score for Document-Level Alignment",
+    author = "Wang, Xiaotian  and
+      Utsuro, Takehito  and
+      Nagata, Masaaki",
+    editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2025",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.findings-emnlp.704/",
+    doi = "10.18653/v1/2025.findings-emnlp.704",
+    pages = "13095--13116",
+    ISBN = "979-8-89176-335-7",
+    abstract = "Document alignment is necessary for the hierarchical mining, which aligns documents across source and target languages within the same web domain. Several high-precision sentence embedding-based methods have been developed, such as TK-PERT and Optimal Transport (OT). However, given the massive scale of web mining data, both accuracy and speed must be considered.In this paper, we propose a cross-lingual Bidirectional Maxsim score (BiMax) for computing doc-to-doc similarity,to improve efficiency compared to the OT method.Consequently, on the WMT16 bilingual document alignment task,BiMax attains accuracy comparable to OT with an approximate 100-fold speed increase.Meanwhile, we also conduct a comprehensive analysis to investigate the performance of current state-of-the-art multilingual sentence embedding models."
+}
 ``` 
 
 ## Contact Us
